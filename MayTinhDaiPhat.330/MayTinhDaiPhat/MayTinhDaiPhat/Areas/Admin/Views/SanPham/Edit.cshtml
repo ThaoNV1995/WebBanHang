@@ -1,148 +1,136 @@
 ﻿@model MayTinhDaiPhat.Models.SanPham
 
 @{
-    ViewBag.Title = "Edit";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "SỬA";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>Edit</h2>
-
+@section masterjs {
+    <link type="text/css" href="~/Content/assets/plugins/form-daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Content/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/Content/assets/plugins/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/form-ckeditor/ckeditor.js"></script>  	<!-- CKEditor -->
+    <script>
+        //Fix since CKEditor can't seem to find it's own relative basepath
+        CKEDITOR_BASEPATH = "~/Content/assets/plugins/form-ckeditor/";
+    </script>
+    <script>
+        //Eternicode Datepicker
+        $(".datepicker").datepicker({ todayHighlight: true });
+        $('#btnSelectImage2').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#AnhSP').val(url);
+            };
+            finder.popup();
+        })
+    </script>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>SanPham</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.MaSP)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaTH, "MaTH", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaTH", String.Empty)
-                @Html.ValidationMessageFor(model => model.MaTH)
+    <legend>Thêm Sản Phẩm</legend>
+    @Html.TextBoxFor(model => model.MaSP, new { @class = "form-control hidden" })
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Tên Sản Phẩm</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.TenSP, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TenSP)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaDM, "MaDM", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaDM", String.Empty)
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Khuyến Mãi</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.KhuyenMai, new { @class = "form-control", placeholder = "Số Lượng..." })
+                @Html.ValidationMessageFor(model => model.KhuyenMai)
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Thương Hiệu</label>(<span style="color:#FF0000">*</span>)
+                @Html.DropDownListFor(model => model.MaDM, (SelectList)ViewBag.MaTH, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaDM)
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Loại Sản Phẩm</label>(<span style="color:#FF0000">*</span>)
+                @Html.DropDownListFor(model => model.MaDM, (SelectList)ViewBag.MaDM, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MaDM)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenSP, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenSP)
-                @Html.ValidationMessageFor(model => model.TenSP)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AnhSP, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhSP)
-                @Html.ValidationMessageFor(model => model.AnhSP)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoTa)
-                @Html.ValidationMessageFor(model => model.MoTa)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.KhuyenMai, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KhuyenMai)
-                @Html.ValidationMessageFor(model => model.KhuyenMai)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ChiTiet, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ChiTiet)
-                @Html.ValidationMessageFor(model => model.ChiTiet)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GiaBan, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GiaBan)
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Gía Sản Phẩm</label>(<span style="color:#FF0000">*</span>)
+                <div class="input-group m-bot15">
+                    <span class="input-group-addon">$</span>
+                    @Html.TextBoxFor(model => model.GiaBan, new { @class = "form-control" })
+                    <span class="input-group-addon">.000</span>
+                </div>
                 @Html.ValidationMessageFor(model => model.GiaBan)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GiaCu, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GiaCu)
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Gía Khuyễn Mãi</label>(<span style="color:#FF0000">*</span>)
+                <div class="input-group m-bot15">
+                    <span class="input-group-addon">$</span>
+                    @Html.TextBoxFor(model => model.GiaCu, new { @class = "form-control" })
+                    <span class="input-group-addon">.000</span>
+                </div>
                 @Html.ValidationMessageFor(model => model.GiaCu)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BaoHanh, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BaoHanh)
-                @Html.ValidationMessageFor(model => model.BaoHanh)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SoLuong, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SoLuong)
+        <div class="col-lg-6">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.SoLuong, new { @class = "form-control", placeholder = "Số Lượng..." })
                 @Html.ValidationMessageFor(model => model.SoLuong)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LuotXem, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LuotXem)
-                @Html.ValidationMessageFor(model => model.LuotXem)
+        <div class="col-lg-4">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.AnhSP, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AnhSP)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NgayDang, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NgayDang)
-                @Html.ValidationMessageFor(model => model.NgayDang)
-            </div>
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-primary" id="btnSelectImage2">
+                <i class="fa fa-arrow-circle-o-down"></i>
+                <span>Chọn Ảnh</span>
+            </button>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NgayCapNhat, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NgayCapNhat)
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label>Ngày Nhập</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.NgayCapNhat, new { @class = "form-control form_datetime datepicker", id = "datepicker", placeholder = "Ngày Nhập..." })
                 @Html.ValidationMessageFor(model => model.NgayCapNhat)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.HienThi, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HienThi)
-                @Html.ValidationMessageFor(model => model.HienThi)
+        <div class="col-lg-5">
+            <div class="form-group">
+                <label>Ngày Hết Hạn</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.NgayDang, new { @class = "form-control form_datetime datepicker", placeholder = "Ngày Hết Hạn..." })
+                @Html.ValidationMessageFor(model => model.NgayDang)
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mô Tả Tóm Tắt</label>
+                @*<textarea id="editor4" name="Description"></textarea>*@
+                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control ckeditor", id = "txtDescription" })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mô Tả Chi Tiết</label>
+                @Html.TextAreaFor(model => model.ChiTiet, new { @class = "form-control ckeditor", id = "txtDetail" })
             </div>
         </div>
     </div>
+    <button type="submit" class="btn-primary btn">Sửa</button>
 }
 
 <div>

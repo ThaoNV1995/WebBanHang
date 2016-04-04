@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaTH).ToPagedList(page, pageSize);
         }
-
+        public List<ThuongHieu> DanhSach()
+        {
+            return _db.ThuongHieu.ToList();
+        }
         // Thêm thương hiệu
         public int ThemThuongHieu(ThuongHieu dx)
         {

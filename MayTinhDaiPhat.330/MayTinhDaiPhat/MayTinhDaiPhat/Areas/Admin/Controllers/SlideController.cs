@@ -17,13 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly SlideDAO dao = new SlideDAO();
 
         // GET: /Admin/Slide/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachSlide(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachSlide(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
+            var list = dao.DanhSach();
             return View(list);
         }
-
         // GET: /Admin/Slide/Details/5
         public ActionResult Details(int id)
         {
@@ -47,7 +51,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Slide slide)
+        public ActionResult Create(Slide slide)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +86,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( Slide slide)
+        public ActionResult Edit(Slide slide)
         {
             if (ModelState.IsValid)
             {
@@ -99,11 +103,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(slide);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
+            var result = dao.XemSlide(id);
+            return View(result);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
             var result = dao.XoaSlide(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

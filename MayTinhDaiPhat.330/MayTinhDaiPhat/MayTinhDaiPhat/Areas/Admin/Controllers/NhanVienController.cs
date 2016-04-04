@@ -17,11 +17,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly NhanVienDAO dao = new NhanVienDAO();
 
         // GET: /Admin/NhanVien/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachNhanVien(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachNhanVien(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
-            return View(list);
+            var resurt = dao.DanhSach();
+            return View(resurt);
         }
 
         // GET: /Admin/NhanVien/Details/5
@@ -104,11 +109,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(nhanvien);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
+            var result = dao.XemNhanVien(id);
+            return View(result);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
             var result = dao.XoaNhanVien(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -21,6 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaNV).ToPagedList(page, pageSize);
         }
+        public List<NhanVien> DanhSach()
+        {
+            return _db.NhanVien.ToList();
+        }
 
         // Thêm nhân viên
         public int ThemNhanVien(NhanVien dx)

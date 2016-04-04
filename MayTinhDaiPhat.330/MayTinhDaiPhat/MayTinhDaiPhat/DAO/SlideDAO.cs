@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaSlide).ToPagedList(page, pageSize);
         }
-
+        public List<Slide> DanhSach()
+        {
+            return _db.Slide.ToList();
+        }
         // Thêm slide
         public int ThemSlide(Slide dx)
         {

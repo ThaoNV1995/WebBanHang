@@ -1,127 +1,55 @@
-﻿
-@using System.Activities.Expressions
-@using PagedList;
-@using PagedList.Mvc
-@model PagedList.IPagedList<MayTinhDaiPhat.Models.SanPham>
+﻿@model List<MayTinhDaiPhat.Models.SanPham>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThuongHieu.TenTH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TenSP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnhSP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KhuyenMai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChiTiet)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaBan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaCu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BaoHanh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LuotXem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayDang)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HienThi)
-        </th>
-        <th></th>
-    </tr>*@
-
-    @foreach (var item in Model)
+@section masterjs
 {
-    <tr id="row_@item.MaSP">
-        <td>
-            @Html.DisplayFor(modelItem => item.DanhMuc.TenDM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThuongHieu.TenTH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnhSP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KhuyenMai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChiTiet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaBan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaCu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BaoHanh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LuotXem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayDang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayCapNhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HienThi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
-            @Ajax.ActionLink("Xóa", "Delete", new { id = @item.MaSP }, new AjaxOptions()
-                {
-                    Confirm = "Bạn có muốn xóa bản ghi này không",
-                    OnComplete = "$('#row_" + @item.MaSP + "').remove()",
-                    HttpMethod = "Delete"
-                }, new { @class = "btn btn-danger btn-xs btn-edit" })
-        </td>
-    </tr>
+    <link type="text/css" href="~/Content/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="~/Content/assets/plugins/datatables/dataTables.fontAwesome.css" rel="stylesheet">
+    <script type="text/javascript" src="~/Content/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="~/Content/assets/demo/demo-datatables.js"></script>
 }
 
-</table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Danh Mục Sản Phẩm</h2>
+                <div class="panel-ctrls">
+                </div>
+            </div>
+            <div class="panel-body panel-no-padding">
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Gía Sản Phẩm</th>
+                            <th>Trạng Thái</th>
+                            <th>Chức Năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="gradeA">
+                                <td><img src="@item.AnhSP" style="width:30px;height:30px;" /></td>
+                                <td>@item.TenSP</td>
+                                <td>@item.GiaBan</td>
+                                <td class="center">@item.GiaCu</td>
+                                <td width="200px">
+                                    <i class="fa fa-pencil-square-o"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.MaSP }) |
+                                    <i class="fa fa-info-circle"></i>@Html.ActionLink("Chi Tiết", "Details", new { id = item.MaSP }) |
+                                    <i class="fa fa-trash-o"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.MaSP })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+</div>
