@@ -1,0 +1,85 @@
+﻿@using System.Activities.Expressions
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<MayTinhDaiPhat.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên danh mục
+        </th>
+        <th>
+           Tiêu đề
+        </th>
+        <th>
+           Hình ảnh
+        </th>
+        <th>
+           Nội dung
+        </th>
+        <th>
+            Lượt xem
+        </th>
+        <th>
+            Ngày đăng
+        </th>
+        <th>
+           Ngay cập nhật
+        </th>
+        <th>
+            Hiện thị
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr id="row_@item.MaTin">
+        <td>
+            @Html.DisplayFor(modelItem => item.DanhMuc.TenDM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhAnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuotXem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HienThi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaTin }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaTin }) |
+            @Ajax.ActionLink("Xóa", "Delete", new { id = @item.MaTin }, new AjaxOptions()
+                {
+                    Confirm = "Bạn có muốn xóa bản ghi này không",
+                    OnComplete = "$('#row_" + @item.MaTin + "').remove()",
+                    HttpMethod = "Delete"
+                }, new { @class = "btn btn-danger btn-xs btn-edit" })
+        </td>
+    </tr>
+}
+
+</table>

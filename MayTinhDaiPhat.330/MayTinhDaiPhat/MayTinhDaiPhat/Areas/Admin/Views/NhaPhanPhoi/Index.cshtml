@@ -1,0 +1,79 @@
+﻿@using System.Activities.Expressions
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<MayTinhDaiPhat.Models.NhaPhanPhoi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên nhà phân phối
+        </th>
+        <th>
+            Người liên hệ
+        </th>
+        <th>
+           Địa chỉ
+        </th>
+        <th>
+            Điện thoại
+        </th>
+        <th>
+            Fax
+        </th>
+        <th>
+           Email
+        </th>
+        <th>
+            Website
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr id="row_@item.MaNPP">
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNPP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiLienHe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Website)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaNPP }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaNPP }) |
+           @Ajax.ActionLink("Xóa", "Delete", new { id = @item.MaNPP }, new AjaxOptions()
+                {
+                    Confirm = "Bạn có muốn xóa bản ghi này không",
+                    OnComplete = "$('#row_" + @item.MaNPP + "').remove()",
+                    HttpMethod = "Delete"
+                }, new { @class = "btn btn-danger btn-xs btn-edit" })
+        </td>
+    </tr>
+}
+
+</table>
