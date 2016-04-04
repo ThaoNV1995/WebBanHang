@@ -13,6 +13,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="search-button">
+    <label>
+        @using (Html.BeginForm("Index", "QuangCao", FormMethod.Get))
+        {
+            <input type="text" id="keyword" name="searchString" class="input_search autocomplete ui-autocomplete-input" placeholder="Từ khóa tìm kiếm..." value="@ViewBag.searchString" autocomplete=" off">
+            <input type="submit" class="btn_search icon icon_search" value="">
+        }
+    </label>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -52,3 +61,4 @@
 }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.searchString }))

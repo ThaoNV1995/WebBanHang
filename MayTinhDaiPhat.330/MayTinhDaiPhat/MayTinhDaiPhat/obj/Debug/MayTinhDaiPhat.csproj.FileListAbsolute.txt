@@ -97,3 +97,35 @@ E:\Học tập\WCF\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\PagedLis
 E:\Học tập\WCF\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.csprojResolveAssemblyReference.cache
 E:\Học tập\WCF\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.dll
 E:\Học tập\WCF\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.pdb
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\MayTinhDaiPhat.dll.config
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\MayTinhDaiPhat.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\MayTinhDaiPhat.pdb
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Antlr3.Runtime.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.SqlServer.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Microsoft.Web.Infrastructure.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Newtonsoft.Json.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Helpers.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Mvc.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Optimization.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Razor.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.Deployment.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.Razor.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\WebGrease.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.SqlServer.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\PagedList.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\PagedList.Mvc.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Helpers.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Mvc.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Optimization.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Razor.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.Deployment.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.Razor.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Newtonsoft.Json.xml
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Antlr3.Runtime.pdb
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.csprojResolveAssemblyReference.cache
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.dll
+D:\ĐỒ ÁN 3\LamThem\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.pdb

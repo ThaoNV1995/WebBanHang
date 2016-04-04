@@ -13,55 +13,65 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div class="search-button">
+    <label>
+        @using (Html.BeginForm("Index", "SanPham", FormMethod.Get))
+        {
+            <input type="text" id="keyword" name="searchString" class="input_search autocomplete ui-autocomplete-input" placeholder="Từ khóa tìm kiếm..." value="@ViewBag.searchString" autocomplete=" off">
+            <input type="submit" class="btn_search icon icon_search" value="">
+        }
+    </label>
+</div>
+
 <table class="table">
-    @*<tr>
+    <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
+            Tên danh mục
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ThuongHieu.TenTH)
+            Tên thương hiệu
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TenSP)
+           Tên sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AnhSP)
+            Ảnh sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MoTa)
+            Mô tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.KhuyenMai)
+            Khuyến mãi
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChiTiet)
+            Chi tiết
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GiaBan)
+            Giá bán
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GiaCu)
+           Giá cũ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BaoHanh)
+            Bảo hành
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoLuong)
+            Số lượng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LuotXem)
+            Lượt xem
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayDang)
+           Ngày đăng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayCapNhat)
+            Ngày cập nhật
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HienThi)
+            Hiển thị
         </th>
         <th></th>
-    </tr>*@
+    </tr>
 
     @foreach (var item in Model)
 {
@@ -125,3 +135,4 @@
 }
 
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.searchString }))
