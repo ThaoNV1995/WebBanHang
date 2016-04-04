@@ -1,0 +1,49 @@
+﻿@using System.Activities.Expressions
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<MayTinhDaiPhat.Models.HinhAnh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Ảnh sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr id="row_@item.MaTH">
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnhSP)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaHA }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaHA }) |
+            @Ajax.ActionLink("Xóa", "Delete", new { id = @item.MaHA }, new AjaxOptions()
+                {
+                    Confirm = "Bạn có muốn xóa bản ghi này không",
+                    OnComplete = "$('#row_" + @item.MaHA + "').remove()",
+                    HttpMethod = "Delete"
+                }, new { @class = "btn btn-danger btn-xs btn-edit" })
+        </td>
+    </tr>
+}
+
+</table>

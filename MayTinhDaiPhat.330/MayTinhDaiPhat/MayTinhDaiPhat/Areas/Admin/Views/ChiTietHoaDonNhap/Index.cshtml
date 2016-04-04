@@ -1,0 +1,67 @@
+﻿@using System.Activities.Expressions
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<MayTinhDaiPhat.Models.ChiTietHoaDonNhap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã hóa đơn nhập
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Chiết khấu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr id="row_@item.MaCTHDN">
+        <td>
+            @Html.DisplayFor(modelItem => item.HoaDonNhap.MaHDN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChietKhau)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaCTHDN }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaCTHDN }) |
+            @Ajax.ActionLink("Xóa", "Delete", new { id = @item.MaCTHDN }, new AjaxOptions()
+                {
+                    Confirm = "Bạn có muốn xóa bản ghi này không",
+                    OnComplete = "$('#row_" + @item.MaCTHDN + "').remove()",
+                    HttpMethod = "Delete"
+                }, new { @class = "btn btn-danger btn-xs btn-edit" })
+        </td>
+    </tr>
+}
+
+</table>
