@@ -115,8 +115,6 @@ E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\WebGrease.dll
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\EntityFramework.SqlServer.xml
-E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\PagedList.xml
-E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\PagedList.Mvc.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Helpers.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Mvc.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.Optimization.xml
@@ -126,7 +124,6 @@ E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\System.Web.WebPages.Razor.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Newtonsoft.Json.xml
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\Antlr3.Runtime.pdb
-E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.csprojResolveAssemblyReference.cache
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.dll
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.pdb
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\CKFinder.dll

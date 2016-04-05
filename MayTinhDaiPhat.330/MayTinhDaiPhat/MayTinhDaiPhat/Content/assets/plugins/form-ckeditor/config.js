@@ -49,9 +49,9 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserBrowseUrl = '/Content/assets/plugins/ckfinder/ckfinder.html';
     config.filebrowserImageBrowseUrl = '/Content/assets/plugins/ckfinder.html?Type=Images';
     config.filebrowserFlashBrowseUrl = '/Content/assets/plugins/ckfinder.html?Type=Flash';
-    config.filebrowserUploadUrl = '~/Content/assets/plugins/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
+    config.filebrowserUploadUrl = '/Content/assets/plugins/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
     config.filebrowserImageUploadUrl = '~/File';
-    config.filebrowserFlashUploadUrl = '~/Content/assets/plugins/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
+    config.filebrowserFlashUploadUrl = '/Content/assets/plugins/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
 
-    CKFinder.setupCKEditor(null, '~/Content/assets/plugins/ckfinder/');
+    CKFinder.setupCKEditor(null, '/Content/assets/plugins/ckfinder/');
 };
