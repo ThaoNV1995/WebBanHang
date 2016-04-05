@@ -28,7 +28,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <legend>Thêm Sản Phẩm</legend>
+    <legend>Thêm Tin Tức</legend>
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
@@ -46,14 +46,14 @@
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Ngày Nhập</label>(<span style="color:#FF0000">*</span>)
+                    <label>Ngày Cập Nhập</label>(<span style="color:#FF0000">*</span>)
                     @Html.TextBoxFor(model => model.NgayCapNhat, new { @class = "form-control form_datetime datepicker", id = "datepicker", placeholder = "Ngày Nhập..." })
                     @Html.ValidationMessageFor(model => model.NgayCapNhat)
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label>Ngày Hết Hạn</label>(<span style="color:#FF0000">*</span>)
+                    <label>Ngày Đăng</label>(<span style="color:#FF0000">*</span>)
                     @Html.TextBoxFor(model => model.NgayDang, new { @class = "form-control form_datetime datepicker", placeholder = "Ngày Hết Hạn..." })
                     @Html.ValidationMessageFor(model => model.NgayDang)
                 </div>

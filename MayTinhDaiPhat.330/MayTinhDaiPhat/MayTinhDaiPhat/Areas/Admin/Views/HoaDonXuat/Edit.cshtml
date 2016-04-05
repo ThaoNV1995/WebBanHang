@@ -9,6 +9,7 @@
     <script>
         //Fix since CKEditor can't seem to find it's own relative basepath
         CKEDITOR_BASEPATH = "~/Content/assets/plugins/form-ckeditor/";
+        CKEDITOR.config.htmlEncodeOutput = true;
     </script>
     <script>
         //Eternicode Datepicker
@@ -18,7 +19,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <legend>Sửa Sản Phẩm</legend>
+    <legend>Sửa Hóa Đơn Nhập</legend>
     @Html.TextBoxFor(model => model.MaHDX, new { @class = "form-control hidden", placeholder = "Ngày Hết Hạn..." })
     <div class="row">
         <div class="col-lg-6">
