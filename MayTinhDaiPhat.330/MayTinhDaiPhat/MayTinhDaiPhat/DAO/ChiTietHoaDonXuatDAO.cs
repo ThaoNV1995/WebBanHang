@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaHDX).ToPagedList(page, pageSize);
         }
-
+        public List<ChiTietHoaDonXuat> DanhSach()
+        {
+            return _db.ChiTietHoaDonXuat.ToList();
+        }
         // Thêm Hóa đơn xuất
         public int ThemChiTietHoaDonXuat(ChiTietHoaDonXuat dx)
         {

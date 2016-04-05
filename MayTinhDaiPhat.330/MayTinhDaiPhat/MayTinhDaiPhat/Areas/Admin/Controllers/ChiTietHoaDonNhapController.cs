@@ -16,13 +16,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private DataContext db = new DataContext();
         private readonly ChiTietHoaDonNhapDAO dao = new ChiTietHoaDonNhapDAO();
         // GET: /Admin/ChiTietHoaDonNhap/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachChiTietHoaDonNhap(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachChiTietHoaDonNhap(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
-            return View(list);
+            return View(dao.DanhSach());
         }
-
         // GET: /Admin/ChiTietHoaDonNhap/Details/5
         public ActionResult Details(int? id)
         {
@@ -41,19 +44,19 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         // GET: /Admin/ChiTietHoaDonNhap/Create
         public ActionResult Create()
         {
-            SetViewBagMaHDN();
-            SetViewBagSanPham();
+            ViewBag.MaHDX = new SelectList(db.HoaDonXuat, "MaHDX", "MaHDX");
+            ViewBag.MaSP = new SelectList(db.SanPham, "MaSP", "TenSP");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( ChiTietHoaDonNhap chitiethoadonnhap)
+        public ActionResult Create(ChiTietHoaDonNhap chitiethoadonnhap)
         {
             if (ModelState.IsValid)
             {
                 var result = dao.ThemChiTietHoaDonNhap(chitiethoadonnhap);
-                if(result>0)
+                if (result > 0)
                 {
                     return RedirectToAction("Index");
                 }
@@ -63,8 +66,8 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
                 }
             }
 
-            SetViewBagMaHDN();
-            SetViewBagSanPham();
+            ViewBag.MaHDX = new SelectList(db.HoaDonXuat, "MaHDX", "MaHDX", chitiethoadonnhap.MaHDN);
+            ViewBag.MaSP = new SelectList(db.SanPham, "MaSP", "TenSP", chitiethoadonnhap.MaSP);
             return View(chitiethoadonnhap);
         }
 
@@ -84,7 +87,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var result = dao.CapNhatChiTietHoaDon(chitiethoadonnhap);
-                if(result)
+                if (result)
                 {
                     return RedirectToAction("Index");
                 }
@@ -93,9 +96,9 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            SetViewBagMaHDN();
-            SetViewBagSanPham();
-            
+            ViewBag.MaHDX = new SelectList(db.HoaDonXuat, "MaHDX", "MaHDX", chitiethoadonnhap.MaHDN);
+            ViewBag.MaSP = new SelectList(db.SanPham, "MaSP", "TenSP", chitiethoadonnhap.MaSP);
+
             return View(chitiethoadonnhap);
         }
 

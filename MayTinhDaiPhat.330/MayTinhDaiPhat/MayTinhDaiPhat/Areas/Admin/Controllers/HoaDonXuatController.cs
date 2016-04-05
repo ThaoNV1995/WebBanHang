@@ -16,13 +16,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private DataContext db = new DataContext();
         private readonly HoaDonXuatDAO dao = new HoaDonXuatDAO();
         // GET: /Admin/HoaDonXuat/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachHoaDonXuat(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachHoaDonXuat(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
+            var list = dao.DanhSach();
             return View(list);
         }
-
         // GET: /Admin/HoaDonXuat/Details/5
         public ActionResult Details(int id)
         {
@@ -107,11 +111,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(hoadonxuat);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
             var result = dao.XemHoaDonXuat(id);
-            return View("Index");
+            return View(result);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
+            var result = dao.XoaHoaDonXuat(id);
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

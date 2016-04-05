@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaHA).ToPagedList(page, pageSize);
         }
-
+        public List<HinhAnh> DanhSach()
+        {
+            return _db.HinhAnh.ToList();
+        }
         // Thêm hình ảnh
         public int ThemHinhAnh(HinhAnh dx)
         {

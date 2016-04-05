@@ -17,13 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly NhaPhanPhoiDAO dao = new NhaPhanPhoiDAO();
 
         // GET: /Admin/NhaPhanPhoi/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachNhaPhanPhoi(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachNhaPhanPhoi(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
+            var list = dao.DanhSach();
             return View(list);
         }
-
         // GET: /Admin/NhaPhanPhoi/Details/5
         public ActionResult Details(int id)
         {
@@ -47,7 +51,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( NhaPhanPhoi nhaphanphoi)
+        public ActionResult Create(NhaPhanPhoi nhaphanphoi)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +86,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( NhaPhanPhoi nhaphanphoi)
+        public ActionResult Edit(NhaPhanPhoi nhaphanphoi)
         {
             if (ModelState.IsValid)
             {
@@ -99,13 +103,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(nhaphanphoi);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
-            var result = dao.XoaNhaPhanPhoi(id);
-            return View("Index");
+            var result = dao.XemNhaPhanPhoi(id);
+            return View(result);
         }
-
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
+            var result = dao.XoaNhaPhanPhoi(id);
+            return RedirectToAction("Index");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
