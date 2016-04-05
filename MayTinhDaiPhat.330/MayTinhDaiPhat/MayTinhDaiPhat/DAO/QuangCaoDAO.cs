@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaQC).ToPagedList(page, pageSize);
         }
-
+        public List<QuangCao> DanhSach()
+        {
+            return _db.QuangCao.ToList();
+        }
         // Thêm quảng cáo
         public int ThemQuangCao(QuangCao dx)
         {

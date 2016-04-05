@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaNPP).ToPagedList(page, pageSize);
         }
-
+        public List<NhaPhanPhoi> DanhSach()
+        {
+            return _db.NhaPhanPhoi.ToList();
+        }
         // Thêm nhà phân phối
         public int ThemNhaPhanPhoi(NhaPhanPhoi dx)
         {

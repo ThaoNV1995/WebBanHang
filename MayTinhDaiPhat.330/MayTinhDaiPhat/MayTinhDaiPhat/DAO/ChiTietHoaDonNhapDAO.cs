@@ -22,7 +22,10 @@ namespace NhapXuat.DAO
             return model.OrderByDescending(x => x.DonGia).ToPagedList(page, pageSize);
         }
 
-
+        public List<ChiTietHoaDonNhap> DanhSach()
+        {
+            return _db.ChiTietHoaDonNhap.ToList();
+        }
         
         //Thêm chi tiết hóa đơn nhập
         public int ThemChiTietHoaDonNhap(ChiTietHoaDonNhap ct)

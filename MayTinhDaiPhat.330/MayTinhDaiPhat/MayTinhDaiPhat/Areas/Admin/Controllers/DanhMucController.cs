@@ -17,13 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly DanhMucDAO dao = new DanhMucDAO();
 
         // GET: /Admin/DanhMuc/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachDanhMuc(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachDanhMuc(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
+            var list = dao.DanhSach();
             return View(list);
         }
-
         // GET: /Admin/DanhMuc/Details/5
         public ActionResult Details(int? id)
         {
@@ -47,7 +51,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( DanhMuc danhmuc)
+        public ActionResult Create(DanhMuc danhmuc)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +87,7 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( DanhMuc danhmuc)
+        public ActionResult Edit(DanhMuc danhmuc)
         {
             if (ModelState.IsValid)
             {
@@ -100,11 +104,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(danhmuc);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
+            var result = dao.XemDanhMuc(id);
+            return View(result);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
             var result = dao.XoaDanhMuc(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

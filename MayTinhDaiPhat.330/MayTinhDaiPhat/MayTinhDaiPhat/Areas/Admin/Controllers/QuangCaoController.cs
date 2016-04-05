@@ -17,13 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly QuangCaoDAO dao = new QuangCaoDAO();
 
         // GET: /Admin/QuangCao/
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        //{
+        //    var list = dao.DanhSachQuangCao(searchString, page, pageSize);
+        //    ViewBag.searchString = searchString;
+        //    return View(list);
+        //}
+        public ActionResult Index()
         {
-            var list = dao.DanhSachQuangCao(searchString, page, pageSize);
-            ViewBag.searchString = searchString;
+            var list = dao.DanhSach();
             return View(list);
         }
-
         // GET: /Admin/QuangCao/Details/5
         public ActionResult Details(int id)
         {
@@ -100,11 +104,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
             return View(quangcao);
         }
 
-        [HttpDelete]
         public ActionResult Delete(int id)
         {
+            var result = dao.XemQuangCao(id);
+            return View(result);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DelSeteAction(int id)
+        {
             var result = dao.XoaQuangCao(id);
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

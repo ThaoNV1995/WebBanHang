@@ -1,51 +1,56 @@
 ﻿@model MayTinhDaiPhat.Models.QuangCao
-
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@section masterjs {
+    <script src="~/Content/assets/plugins/ckfinder/ckfinder.js"></script>
+    <script>
+        //Eternicode Datepicker
+        $('#btnSelectImage2').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#AnhQC').val(url);
+            };
+            finder.popup();
+        })
+    </script>
+}
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>QuangCao</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenQC, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenQC)
+    <legend>Thêm Quảng Cáo</legend>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Tên Quảng Cáo</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.TenQC, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TenQC)
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.AnhQC, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AnhQC)
-                @Html.ValidationMessageFor(model => model.AnhQC)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.STT, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.STT)
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>STT</label>(<span style="color:#FF0000">*</span>)
+                @Html.TextBoxFor(model => model.STT, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.STT)
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="col-lg-6">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.AnhQC, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AnhQC)
             </div>
         </div>
+        <div class="col-lg-2">
+            <button type="submit" class="btn btn-primary" id="btnSelectImage2">
+                <i class="fa fa-arrow-circle-o-down"></i>
+                <span>Chọn Ảnh</span>
+            </button>
+        </div>
+
     </div>
+    <button type="submit" class="btn-primary btn">Thêm</button>
 }
 
 <div>

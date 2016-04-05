@@ -21,7 +21,10 @@ namespace NhapXuat.DAO
             }
             return model.OrderByDescending(x => x.MaDM).ToPagedList(page, pageSize);
         }
-
+        public List<DanhMuc> DanhSach()
+        {
+            return _db.DanhMuc.ToList();
+        }
         // Thêm Danh mục
         public int ThemDanhMuc(DanhMuc dx)
         {
