@@ -128,3 +128,4 @@ E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.pdb
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\CKFinder.dll
 E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\bin\CKFinder.pdb
+E:\_Study\_SourceCode\_SourseGithub\WebBanHang\MayTinhDaiPhat.330\MayTinhDaiPhat\MayTinhDaiPhat\obj\Debug\MayTinhDaiPhat.csprojResolveAssemblyReference.cache

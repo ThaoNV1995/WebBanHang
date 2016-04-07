@@ -1,4 +1,7 @@
-﻿@model List<MayTinhDaiPhat.Models.NhaPhanPhoi>
+﻿@using System.Activities.Expressions
+@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<MayTinhDaiPhat.Models.NhaPhanPhoi>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -7,17 +10,26 @@
 {
     <link type="text/css" href="~/Content/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
     <link type="text/css" href="~/Content/assets/plugins/datatables/dataTables.fontAwesome.css" rel="stylesheet">
-    <script type="text/javascript" src="~/Content/assets/plugins/datatables/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="~/Content/assets/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" src="~/Content/assets/demo/demo-datatables.js"></script>
 }
 
 <div class="row">
     <div class="col-md-12">
+        <div class="padding-bottom-10">
+            <a href="/Admin/NhaPhanPhoi/Create" class="btn btn-primary">Thêm</a>
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h2>Danh Mục Sản Phẩm</h2>
                 <div class="panel-ctrls">
+                    <div class="search-button">
+                        <label>
+                            @using (Html.BeginForm("Index", "SanPham", FormMethod.Get))
+                            {
+                                <input type="text" id="keyword" name="searchString" class="input_search autocomplete ui-autocomplete-input" placeholder="Từ khóa tìm kiếm..." value="@ViewBag.searchString" autocomplete=" off">
+                                <button type="submit" class="btn btn-success">Tìm Kiếm</button>
+                            }
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="panel-body panel-no-padding">
@@ -42,13 +54,14 @@
                                 <td>@item.Email</td>
                                 <td>@item.DienThoai</td>
                                 <td width="200px">
-                                    <i class="fa fa-pencil-square-o"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.MaNPP }) |
-                                    <i class="fa fa-trash-o"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.MaNPP })
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaNPP }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaNPP })
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.searchString }))
                 <div class="panel-footer"></div>
             </div>
         </div>

@@ -16,17 +16,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private DataContext db = new DataContext();
         private readonly HinhAnhDAO dao = new HinhAnhDAO();
         // GET: /Admin/HinhAnh/
-        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
-        //{
-        //    var list = dao.DanhSachHinhAnh(searchString, page, pageSize);
-        //    ViewBag.searchString = searchString;
-        //    return View(list);
-        //}
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var list = dao.DanhSach();
+            var list = dao.DanhSachHinhAnh(searchString, page, pageSize);
+            ViewBag.searchString = searchString;
             return View(list);
         }
+        //public ActionResult Index()
+        //{
+        //    var list = dao.DanhSach();
+        //    return View(list);
+        //}
         // GET: /Admin/HinhAnh/Details/5
         public ActionResult Details(int id)
         {

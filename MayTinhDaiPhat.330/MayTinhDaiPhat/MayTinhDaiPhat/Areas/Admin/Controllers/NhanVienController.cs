@@ -17,17 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly NhanVienDAO dao = new NhanVienDAO();
 
         // GET: /Admin/NhanVien/
-        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
-        //{
-        //    var list = dao.DanhSachNhanVien(searchString, page, pageSize);
-        //    ViewBag.searchString = searchString;
-        //    return View(list);
-        //}
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var resurt = dao.DanhSach();
-            return View(resurt);
+            var list = dao.DanhSachNhanVien(searchString, page, pageSize);
+            ViewBag.searchString = searchString;
+            return View(list);
         }
+        //public ActionResult Index()
+        //{
+        //    var resurt = dao.DanhSach();
+        //    return View(resurt);
+        //}
 
         // GET: /Admin/NhanVien/Details/5
         public ActionResult Details(int id)
