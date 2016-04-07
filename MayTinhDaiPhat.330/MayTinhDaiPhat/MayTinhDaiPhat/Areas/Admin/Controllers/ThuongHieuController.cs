@@ -17,17 +17,17 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly ThuongHieuDAO dao = new ThuongHieuDAO();
 
         // GET: /Admin/ThuongHieu/
-        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
-        //{
-        //    var list = dao.DanhSachThuongHieu(searchString, page, pageSize);
-        //    ViewBag.searchString = searchString;
-        //    return View(list);
-        //}
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var list = dao.DanhSach();
+            var list = dao.DanhSachThuongHieu(searchString, page, pageSize);
+            ViewBag.searchString = searchString;
             return View(list);
         }
+        //public ActionResult Index()
+        //{
+        //    var list = dao.DanhSach();
+        //    return View(list);
+        //}
 
         // GET: /Admin/ThuongHieu/Details/5
         public ActionResult Details(int id)

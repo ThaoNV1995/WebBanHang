@@ -17,16 +17,16 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
         private readonly ChiTietHoaDonXuatDAO dao = new ChiTietHoaDonXuatDAO();
 
         // GET: /Admin/ChiTietHoaDonXuat/
-        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
-        //{
-        //    var list = dao.DanhSachChiTietHoaDonXuat(searchString, page, pageSize);
-        //    ViewBag.searchString = searchString;
-        //    return View(list);
-        //}
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View(dao.DanhSach());
+            var list = dao.DanhSachChiTietHoaDonXuat(searchString, page, pageSize);
+            ViewBag.searchString = searchString;
+            return View(list);
         }
+        //public ActionResult Index()
+        //{
+        //    return View(dao.DanhSach());
+        //}
         // GET: /Admin/ChiTietHoaDonXuat/Details/5
         public ActionResult Details(int id)
         {

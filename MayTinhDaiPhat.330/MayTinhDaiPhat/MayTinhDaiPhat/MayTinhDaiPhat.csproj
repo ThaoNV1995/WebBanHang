@@ -2554,6 +2554,7 @@
     <Content Include="Content\assets\plugins\wijets\wijets.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Admin.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\style_new.css" />
@@ -2594,6 +2595,7 @@
     <Content Include="Content\img\banner_d2ddea18.png" />
     <Content Include="Content\img\banner_ed3d2c21.png" />
     <Content Include="Content\img\banner_f0935e4c.png" />
+    <Content Include="Content\img\bg_border_bottom.png" />
     <Content Include="Content\img\blank.gif" />
     <Content Include="Content\img\brand_127.jpg" />
     <Content Include="Content\img\brand_134.jpg" />
@@ -2636,6 +2638,7 @@
     <Content Include="Content\img\icon_prev.png" />
     <Content Include="Content\img\lenovo.jpg" />
     <Content Include="Content\img\logo_logo.png" />
+    <Content Include="Content\img\logo_small.png" />
     <Content Include="Content\img\popup_pop up22.png" />
     <Content Include="Content\img\soundmax.png" />
     <Content Include="Content\img\sprite.png" />

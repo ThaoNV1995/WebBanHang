@@ -15,18 +15,18 @@ namespace MayTinhDaiPhat.Areas.Admin.Controllers
     {
         private DataContext db = new DataContext();
         private readonly SanPhamDAO dao = new SanPhamDAO();
-        // GET: /Admin/SanPham/
-        //public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
-        //{
-        //    var list = dao.DanhSachSanPham(searchString, page, pageSize);
-        //    ViewBag.searchString = searchString;
-        //    return View(list);
-        //}
-        public ActionResult Index()
+        //GET: /Admin/SanPham/
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            var list = dao.DanhSach();
+            var list = dao.DanhSachSanPham(searchString, page, pageSize);
+            ViewBag.searchString = searchString;
             return View(list);
         }
+        //public ActionResult Index()
+        //{
+        //    var list = dao.DanhSach();
+        //    return View(list);
+        //}
 
         // GET: /Admin/SanPham/Details/5
         public ActionResult Details(int id)

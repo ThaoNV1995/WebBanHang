@@ -12,15 +12,15 @@ namespace NhapXuat.DAO
         private readonly DataContext _db = new DataContext();
 
         //Lấy danh sách sản phẩm
-        //public IEnumerable<SanPham> DanhSachSanPham(string text, int page, int pageSize)
-        //{
-        //    IQueryable<SanPham> model = _db.SanPham;
-        //    if (!string.IsNullOrEmpty(text))
-        //    {
-        //        model = model.Where(x => x.TenSP.ToString().Contains(text));
-        //    }
-        //    return model.OrderByDescending(x => x.MaSP).ToPagedList(page, pageSize);
-        //}
+        public IEnumerable<SanPham> DanhSachSanPham(string text, int page, int pageSize)
+        {
+            IQueryable<SanPham> model = _db.SanPham;
+            if (!string.IsNullOrEmpty(text))
+            {
+                model = model.Where(x => x.TenSP.ToString().Contains(text));
+            }
+            return model.OrderByDescending(x => x.MaSP).ToPagedList(page, pageSize);
+        }
         public List<SanPham> DanhSach()
         {
             return _db.SanPham.ToList();
